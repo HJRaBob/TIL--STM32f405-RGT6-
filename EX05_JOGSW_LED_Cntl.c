@@ -68,7 +68,8 @@ int main(int argc, char* argv[])
 		}
 
 		last = current & 0x3007; //check only pin0,1,2,12,13
-
+		
+/*----------------------LED1 Control------------------------------------------*/
 		if (!(flag & 0x01)) //0x*0 : LED1_OFF
 			GPIOA_BSRR = 0x00040000;
 		else if (flag & 0x02){ //0x*3 : LED1_BLINK
@@ -77,7 +78,9 @@ int main(int argc, char* argv[])
 		}
 		else if (!(flag & 0x02)) //0x*2 :LED1_ON
 			GPIOA_BSRR = 0x00000004;
+/*-----------------------------------------------------------------------------*/
 
+/*----------------------LED2 Control------------------------------------------*/
 		if (!(flag & 0x10)) //0x0* : LED2_OFF
 			GPIOA_BSRR = 0x00080000;
 
@@ -87,7 +90,7 @@ int main(int argc, char* argv[])
 		}
 		else if (!(flag & 0x20)) //0x2* :LED2_ON
 			GPIOA_BSRR = 0x00000008;
-
+/*-----------------------------------------------------------------------------*/
 
 	}
 }
