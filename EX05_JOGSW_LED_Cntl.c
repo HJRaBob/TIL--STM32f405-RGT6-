@@ -52,7 +52,7 @@ int main(int argc, char* argv[])
 	/*main routine*/
 	while (1) {
 		current = GPIOB_IDR;
-		if (!last) {
+		if (!last) { //for edge check
 			if (current & 0x0001) { //UP : 0x*0(LED1_OFF) or 0x*1(LED1_ON)
 				flag &= 0xFD;
 				flag ^= 0x01;
